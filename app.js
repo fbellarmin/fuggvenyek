@@ -34,3 +34,22 @@ function star(positionX, positionY, size) {
 star(40, 50, 75);
 star(130, 120, 100);
 star(250, 220, 150);
+
+var canvasWidth = canvas.width;
+var canvasHeight = canvas.height;
+
+function lineToCenter(positionX, positionY, color) {
+    context.beginPath();
+    context.moveTo(positionX, positionY);
+    context.lineTo(canvasWidth / 2, canvasHeight / 2);
+    context.strokeStyle = color;
+    context.stroke();
+}
+
+function random(max, min) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+for (var lineCounter = 1; lineCounter <= 1000; lineCounter++) {
+    lineToCenter(random(canvasWidth, 0), random(canvasHeight, 0), 'teal');
+}
